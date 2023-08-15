@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Calculator</title>
+
+    <style>
+
+        p{
+            text-align: right;
+            color: white;
+            font-size: 17px;
+            margin-right: 8px;
+        }
+
+        .cal-container{
+            background-color:  #4d4d4d;
+            width:300px;
+            padding: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px 15px 30px 30px;
+            }
+
+        .cal-screen{
+            width: 280px;
+            background-color:   #94b8b8;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 15px;
+            padding:5px;
+            font-size: 40px;
+            border-radius:5px;
+        }
+
+        .solar-screen_container{
+            display: flex;
+            justify-content:end;
+            margin-right: 5px; 
+        
+        }
+
+        .solar-screen{
+            background-color: #737373;
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            border: solid 1px black;
+            margin-bottom: 10px; 
+                      
+        }
+
+        .cal-row{
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .cal-button{
+            
+            height: 50px;
+            width: 60px;
+            font-size: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            border: solid 1px black;
+            margin-bottom: 10px;
+            background-color:  #e6e6e6;
+        }
+
+        .cal-button-color{
+            background-color: #ff4d4d;
+        }
+
+        .cal-button:hover{
+            background-color: skyblue;
+            border-radius: 30px;
+        }
+    </style>
+    
+</head>
+<body style="margin-top: 40px;">
+
+    <div class="cal-container">
+        <p> CASIO</p>
+        <input type="text" class="cal-screen" id="screen"/>
+
+        <div class="solar-screen_container">
+            <div class="solar-screen" ></div>
+            <div class="solar-screen"></div>
+            <div class="solar-screen"></div>
+            <div class="solar-screen"></div>
+
+        </div>
+
+        <div class="cal-row">
+            <button class="cal-button" >ON</button>
+            <button class="cal-button" onclick="keypress('clear')">AC</button>
+            <button class="cal-button" onclick="keypress('clear')">C</button>
+            <button class="cal-button cal-button-color" onclick="keypress('+')">+</button>
+            
+        </div>
+
+        <div class="cal-row">
+            <button class="cal-button" onclick="keypress('7')">7</button>
+            <button class="cal-button" onclick="keypress('8')">8</button>
+            <button class="cal-button" onclick="keypress('9')">9</button>
+            <button class="cal-button cal-button-color" onclick="keypress('-')">-</button>
+            
+        </div>
+
+        <div class="cal-row">
+            <button class="cal-button" onclick="keypress('4')">4</button>
+            <button class="cal-button" onclick="keypress('5')">5</button>
+            <button class="cal-button" onclick="keypress('6')">6</button>
+            <button class="cal-button cal-button-color" onclick="keypress('*')">x</button>
+            
+        </div>
+
+        <div class="cal-row">
+            <button class="cal-button" onclick="keypress('1')">1</button>
+            <button class="cal-button" onclick="keypress('2')">2</button>
+            <button class="cal-button" onclick="keypress('3')">3</button>
+            <button class="cal-button cal-button-color" onclick="keypress('/')">/</button>
+
+        </div>
+
+        <div class="cal-row ">
+            <button class="cal-button cal-button-color" onclick="keypress('.')">.</button>
+            <button class="cal-button " onclick="keypress('0')">0</button>
+            <button class="cal-button cal-button-color" onclick="keypress('00')">00</button>
+            <button class="cal-button cal-button-color" onclick="keypress('=')">=</button>
+            
+        </div>
+ 
+    </div>
+
+    <script>
+        function keypress(key){
+            const inputscreen=document.getElementById('screen')
+            if (key=='='){
+                inputscreen.value=eval(inputscreen.value)
+            }
+            
+            else if (key=='clear'){
+                inputscreen.value='';
+            }
+
+            else{
+                inputscreen.value +=key;
+
+            }
+            }
+    </script>
+</body>
+</html>
